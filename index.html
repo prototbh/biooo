@@ -25,7 +25,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGNuYmkwcjhhOWk5YTh1a3Jkb2F4dWo0MjRoeTRwczN6bHdxejU3ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hdn3NN19U2YCqPUpcQ/giphy.gif');
+            background-image: url('https://i.imgur.com/u8To00M_d.webp?maxwidth=760&fidelity=grand');
             background-size: cover;
             background-position: center;
             filter: brightness(80%);
@@ -46,78 +46,24 @@
         p {
             font-size: 1.2em;
         }
-        .heart {
+        .skull {
             position: absolute;
             width: 30px;
             height: 30px;
-            background: red;
-            clip-path: path('M16 29S3 22 3 12a7 7 0 0114 0 7 7 0 0114 0c0 10-13 17-13 17z');
-            transform: rotate(-45deg);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 1s ease-out, transform 1s ease-out;
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://your-skull-image-url.com/black-skull.png');
+            /* Optional: Set a static position for the skulls */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>Welcome to My Bio!</h1>
-        <p>Hello, my name is Elijah/Proto, and I am a software developer from PA. I have basic knowledge of Python, C#, & HTML. I am 13 and IAFF.</p>
+        <p>My name is Elijah, or Proto. I’m a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I’m passionate about coding and also i ♥ goth women</p>
     </div>
-
-    <script>
-        let heartQueue = [];
-        const maxHeartsPerInterval = 1;
-        const heartInterval = 10; // milliseconds
-        let lastTimestamp = 0;
-
-        function createHeart(x, y) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            
-            // Randomly choose between pink and purple
-            const colors = ['#ff69b4', '#d580ff'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            heart.style.background = randomColor;
-
-            document.body.appendChild(heart);
-            heart.style.left = `${x}px`;
-            heart.style.top = `${y}px`;
-            heart.style.opacity = 1;
-
-            setTimeout(() => {
-                heart.style.transform = `rotate(-45deg) scale(1.5)`;
-                heart.style.opacity = 0;
-            }, 0);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 2000);
-        }
-
-        function processQueue() {
-            if (heartQueue.length > 0) {
-                const now = Date.now();
-                const elapsed = now - lastTimestamp;
-
-                if (elapsed >= heartInterval) {
-                    if (heartQueue.length > 0) {
-                        const { x, y } = heartQueue.shift();
-                        createHeart(x, y);
-                        lastTimestamp = now;
-                    }
-                }
-
-                setTimeout(processQueue, heartInterval);
-            }
-        }
-
-        document.addEventListener('mousemove', function(e) {
-            heartQueue.push({ x: e.clientX, y: e.clientY });
-            if (heartQueue.length === 1) {
-                processQueue();
-            }
-        });
-    </script>
 </body>
 </html>
