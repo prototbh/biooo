@@ -1,69 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html><head><base href="https://websim.protosoup.dev/elijah-bio/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>protos-bio</title>
+    <title>Elijah's Bio</title>
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+        body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
             overflow: hidden;
-            position: relative;
         }
-        body::before {
-            content: "";
-            position: absolute;
+
+        .background {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.imgur.com/u8To00M_d.webp?maxwidth=760&fidelity=grand');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(80%);
+            background: linear-gradient(to bottom, #000033 0%, #191970 40%, #800080 80%, #ff69b4 100%);
             z-index: -1;
         }
-        .content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 25px;
-            max-width: 500px;
-            position: relative;
-            z-index: 1;
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
-        h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        .skull {
+
+        .star {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background-size: cover;
-            background-position: center;
-            background-image: url('https://your-skull-image-url.com/black-skull.png');
-            /* Optional: Set a static position for the skulls */
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #add8e6;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .highlight {
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
         }
     </style>
 </head>
 <body>
-    <div class="content">
+    <div class="background"></div>
+    <div class="stars" id="stars"></div>
+    <div class="container">
         <h1>Welcome to My Bio!</h1>
-        <p>My name is Elijah, or Proto. I’m a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I’m passionate about coding and also i ♥ goth women</p>
+        <p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding and also I ♥ goth women.</p>
     </div>
-</body>
-</html>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 500; // Increased star count
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+
+                const duration = Math.random() * 2 + 1; // Faster twinkling
+                star.style.animation = `twinkle ${duration}s infinite`;
+
+                starsContainer.appendChild(star);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createStars);
+    </script>
+</body></html>
