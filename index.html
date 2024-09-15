@@ -1,4 +1,6 @@
-<html><head><base href="https://websim.protosoup.dev/elijah-bio/">
+<html>
+<head>
+    <base href="https://websim.protosoup.dev/elijah-bio/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elijah's Bio</title>
@@ -19,7 +21,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, #000033 0%, #191970 40%, #800080 80%, #ff69b4 100%);
+            /* Darker gradient colors */
+            background: linear-gradient(to bottom, #000011 0%, #0a0a33 40%, #200020 80%, #500030 100%);
             z-index: -1;
         }
 
@@ -57,18 +60,18 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateY(-20px);
-            animation: fadeInDown 1s ease-out forwards;
+            animation: fadeInDown 1s ease-out forwards, bobbing 3s infinite ease-in-out;
         }
 
         p {
             font-size: 1.2rem;
             line-height: 1.6;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 20px;
             color: #add8e6;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 1s ease-out 0.5s forwards;
+            animation: fadeInUp 1s ease-out 0.5s forwards, bobbing 3s infinite ease-in-out;
         }
 
         .highlight {
@@ -90,6 +93,15 @@
             }
         }
 
+        @keyframes bobbing {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         @keyframes twinkle {
             0% { opacity: 0.2; }
             50% { opacity: 1; }
@@ -102,7 +114,10 @@
     <div class="stars" id="stars"></div>
     <div class="container">
         <h1>Welcome to My Bio!</h1>
-        <p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding and also I ♥ goth women.</p>
+        <p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding, I have Legg–Calvé–Perthes disease because of that I have had over 12 surgeries and also I ♥ goth women.</p>
+        
+        <!-- Smaller Spotify embed -->
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/76ODTQOl0JZQbhfxs6nRV9?utm_source=generator" width="300" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
     <script>
@@ -130,4 +145,5 @@
 
         document.addEventListener('DOMContentLoaded', createStars);
     </script>
-</body></html>
+</body>
+</html>
