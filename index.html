@@ -21,7 +21,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Darker gradient colors */
             background: linear-gradient(to bottom, #000011 0%, #0a0a33 40%, #200020 80%, #500030 100%);
             z-index: -1;
         }
@@ -79,6 +78,13 @@
             font-weight: bold;
         }
 
+        .right-image {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 10;
+        }
+
         @keyframes fadeInDown {
             to {
                 opacity: 1;
@@ -115,15 +121,18 @@
     <div class="container">
         <h1>Welcome to My Bio!</h1>
         <p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 13-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding, game dev in godot, I have Legg–Calvé–Perthes disease because of that I have had over 12 surgeries and also I ♥ goth women.</p>
-        
+
         <!-- Smaller Spotify embed -->
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/76ODTQOl0JZQbhfxs6nRV9?utm_source=generator" width="300" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
+    <!-- Image placed on the right side -->
+    <img class="right-image" src="https://raw.githubusercontent.com/prototbh/kjgjhdfgkjfdgdfgfdg/refs/heads/main/download-removebg-preview.png?token=GHSAT0AAAAAACYNQTLNNMLQCSZY7NTE5654ZYBSMYA" alt="Right-side image">
+
     <script>
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            const starCount = 500; // Increased star count
+            const starCount = 500;
 
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
@@ -136,7 +145,7 @@
                 star.style.left = `${Math.random() * 100}%`;
                 star.style.top = `${Math.random() * 100}%`;
 
-                const duration = Math.random() * 2 + 1; // Faster twinkling
+                const duration = Math.random() * 2 + 1;
                 star.style.animation = `twinkle ${duration}s infinite`;
 
                 starsContainer.appendChild(star);
