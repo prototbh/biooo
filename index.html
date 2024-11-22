@@ -76,14 +76,38 @@
             font-weight: bold;
         }
 
+        iframe {
+            margin-bottom: 20px;
+        }
+
+        .discord-logo {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .discord-logo img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .discord-logo img:hover {
+            transform: scale(1.2);
+        }
+
         .right-image {
             position: fixed;
             right: 20px;
-            bottom: 20px;
+            bottom: 450px;
             z-index: 10;
+            width: 350px; 
+            height: auto;
         }
 
-        /* Media query to hide the image on small screens (mobile devices) */
         @media only screen and (max-width: 768px) {
             .right-image {
                 display: none;
@@ -124,14 +148,17 @@
     <div class="background"></div>
     <div class="stars" id="stars"></div>
     <div class="container">
-        <h1>Welcome to My Bio!</h1><p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 14-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding and game development in Godot, and I’m currently learning C++. I have Legg–Calvé–Perthes disease, which has led to over 12 surgeries. I also have a thing for goth women and really like thick thighs.</p>
+        <h1>Welcome to My Bio!</h1>
+        <p>My name is <span class="highlight">Elijah</span>, or <span class="highlight">Proto</span>. I'm a 14-year-old software developer from Pennsylvania with some experience in Python, C#, and HTML. I'm passionate about coding and game development in Godot, and I’m currently learning C++. I have Legg–Calvé–Perthes disease, which has led to over 12 surgeries. I also have a thing for goth women and really like thick thighs.</p>
 
-        <!-- Smaller Spotify embed -->
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/76ODTQOl0JZQbhfxs6nRV9?utm_source=generator" width="300" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <div class="discord-logo" onclick="copyToClipboard('prototbh.')">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord Logo">
+        </div>
     </div>
 
-    <!-- Image placed on the right side -->
-    <img class="right-image" src="https://raw.githubusercontent.com/not-nox/a/refs/heads/main/(1).png" alt="Right-side image">
+    <img class="right-image" src="https://raw.githubusercontent.com/prototbh/biooo/refs/heads/main/corvin-stichert-asset-Photoroom-removebg-preview.png" alt="Right-side image">
 
     <script>
         function createStars() {
@@ -154,6 +181,14 @@
 
                 starsContainer.appendChild(star);
             }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(`Copied "${text}" to clipboard!`);
+            }).catch(err => {
+                console.error('Error copying to clipboard:', err);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', createStars);
